@@ -12,12 +12,19 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-    var current = head, prev = null
+    // 遞歸方式
+    if (head == null || head.next == null) return head
+    var last = reverseList(head.next)
+    head.next.next = head
+    head.next = null
+    return last
+
+    /*var current = head, prev = null
     while (current != null) {
         var nextTmp = current.next
         current.next = prev
         prev = current
         current = nextTmp
     }
-    return prev
+    return prev*/
 };
